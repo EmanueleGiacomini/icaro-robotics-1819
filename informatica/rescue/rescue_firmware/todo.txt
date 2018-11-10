@@ -1,0 +1,20 @@
+########### TODO #############
+- Completare rescue_joints.cpp completando le funzioni ( sono molto simili
+  a quelle del soccer)
+
+- Completare rescue_linefollower.cpp (consiglio: leggiti le API della Pixy2
+  per capire come e quali dati estrarre dalla pixy
+
+########### SUGGERIMENTI #############
+- Puoi indicare i pin che intendi utilizzare su rescue_pins.h (dagli un nome
+  comprensibile)
+
+- Se devi dichiarare una struttura(o classe) che sia globale nel programma
+  (come ad esempio le struct dei motori (joint) che devono essere globali,
+  dichiarale in rescue_globals.h e rescue_globals.cpp preceduti dal prefisso
+  extern
+
+- Se hai qualunque dubbio chiedi.
+
+- Inserisci tanti commenti pieni di riferimenti ironici sennò ti considero
+  una persona triste :(

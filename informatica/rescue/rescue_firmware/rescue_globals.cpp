@@ -3,6 +3,7 @@
 **/
 
 #include "rescue_globals.h"
+#include "rescue_pins.h"
 #include "rescue_joints.h"
 
 #ifdef __cplusplus
@@ -14,16 +15,16 @@ extern "C" {
       {// Joint 0
         .pins =
         {
-          10,
-          11
+          JOINT_1_DIR_PIN,
+          JOINT_1_PWM_PIN
         },
         .speed=0
       },
       {// Joint 1
         .pins =
         {
-          12,
-          13
+          JOINT_2_DIR_PIN,
+          JOINT_2_PWM_PIN
         },
         .speed=0
       }

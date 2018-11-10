@@ -5,21 +5,7 @@
 #include "rescue_joints.h"
 
 /** Initialize the joint given the pins **/
-void RescueJoint_init(RescueJoint joint, uint8_t* pins1, uint8_t pins2) {  //ti spiego perchè sicuramente di chiederai
-  uint8_t* JOINT_1_DIR_PIN = &pins1[0];                                    //perchè ho creato due variabile che contengono i pin
-  uint8_t* JOINT_1_PWM_PIN = &pins1[1];      //il motivo è solo perchè secondo me è più comodo gestirsi i pin di ogni singolo motore
-  uint8_t* JOINT_2_DIR_PIN = &pins2[0];     //separatamente così è più pulito e non si fa confusione anche quando usano 
-  uint8_t* JOINT_2_PWM_PIN = &pins2[1];
-
-  pinMode(JOINT_1_DIR_PIN, OUTPUT);
-  pinMode(JOINT_1_PWM_PIN, OUTPUT);    //li imposto come output perchè ti voglio copiare almeno una cosa di tutto quello che
-  pinMode(JOINT_2_DIR_PIN, OUTPUT);    //ho scritto sarà giusta...
-  pinMode(JOINT_2_PWM_PIN, OUTPUT);
-
-  this->JOINT_1_DIR_PIN = JOINT_1_DIR_PIN;
-  this->JOINT_1_PWM_PIN = JOINT_1_PWM_PIN;   //anche su questo ti copio perchè sei bello. Non ti fare strani pensieri a me
-  this->JOINT_2_DIR_PIN = JOINT_2_DIR_PIN;   //piace la figa
-  this->JOINT_2_PWM_PIN = JOINT_2_PWM_PIN;
+void RescueJoint_init(RescueJoint joint, uint8_t* pins) {  
   return;
 }
 

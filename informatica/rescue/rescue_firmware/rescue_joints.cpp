@@ -6,6 +6,7 @@
 
 /** Initialize the joint given the pins **/
 void RescueJoint_init(RescueJoint joint, uint8_t* pins) {  
+  pinMode(joint->pins[0], INPUT);
   return;
 }
 

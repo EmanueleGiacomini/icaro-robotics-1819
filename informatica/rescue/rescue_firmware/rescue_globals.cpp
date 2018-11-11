@@ -6,7 +6,7 @@
 #include "rescue_pins.h"
 #include "rescue_joints.h"
 
-#ifdef __cplusplus
+#ifdef __cplusplus  //compilazione condizionale
 extern "C" {
 #endif
   

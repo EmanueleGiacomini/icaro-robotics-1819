@@ -1,7 +1,6 @@
 /**
    rescue_joints.cpp
 **/
-#pragma once;  //mi hai deluso non mi sarei mai aspettato da te che ti dimenticasti del nostro amico qui presente.
 #include "rescue_joints.h"
 
 /** Initialize the joint given the pins **/

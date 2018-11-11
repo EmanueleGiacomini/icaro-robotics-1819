@@ -8,7 +8,7 @@
 //#include "Pixy2.h"
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("Serial initialized...");
   Serial.println("Compilazione completata...");
 }

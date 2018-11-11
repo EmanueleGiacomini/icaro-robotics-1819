@@ -7,7 +7,7 @@
 
 /** Uncomment to set debug mode on...
     this will print debug messages on the serial interface **/
-// #define _DEBUG_ 1
+//#define _DEBUG_ 1
 
 #define NUM_MOTORS 2
 

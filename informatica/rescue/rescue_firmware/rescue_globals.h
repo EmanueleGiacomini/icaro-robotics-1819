@@ -3,7 +3,7 @@
 **/
 #pragma once
 #include <Arduino.h>
-#include <Pixy2.h>
+//#include <Pixy2.h>
 
 /** Uncomment to set debug mode on...
     this will print debug messages on the serial interface **/
@@ -12,5 +12,5 @@
 #define NUM_MOTORS 2
 
 /** Pixy2 object **/
-extern Pixy2 pixy;
+//extern Pixy2 pixy;
 

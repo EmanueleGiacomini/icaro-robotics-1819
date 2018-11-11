@@ -5,7 +5,7 @@
 #pragma once
 #include <Arduino.h>
 #include "rescue_globals.h"
-#include <Pixy2.h>
+//#include <Pixy2.h>
 
 /** Initialize the LineFollower **/
 void LineFollower_init();

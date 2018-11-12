@@ -10,19 +10,19 @@ void LineFollower_init() {
   Serial.println(F("Initializing Pixy2"));
 #endif
   
-  //pixy.init();
+  pixy.init();
   
 #ifdef _DEBUG_
-  //Serial.println(pixy.changeProg("line"));
+  Serial.println(pixy.changeProg("line"));
 #else
-  //pixy.changeProg("line");
+  pixy.changeProg("line");
 #endif
   return;
 }
 
 /** Update the LineFollower by updating Pixy data **/
 void LineFollower_update() {
-  //pixy.line.getMainFeatures();
+  pixy.line.getMainFeatures();
   return;
 }
 

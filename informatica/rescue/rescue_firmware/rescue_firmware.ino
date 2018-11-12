@@ -5,7 +5,7 @@
 #include "rescue_pins.h"
 #include "rescue_joints.h"
 #include "rescue_linefollower.h"
-//#include "Pixy2.h"
+#include "Pixy2.h"
 
 void setup() {
   Serial.begin(9600);

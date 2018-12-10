@@ -11,6 +11,8 @@
 
 #define NUM_MOTORS 2
 
+#define NUM_DETECTORS 3
+
 /** Pixy2 object **/
 extern Pixy2 pixy;
 

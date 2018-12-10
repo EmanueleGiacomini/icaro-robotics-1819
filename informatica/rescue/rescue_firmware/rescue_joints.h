@@ -6,19 +6,29 @@
 #include "rescue_globals.h"
 
 typedef struct {
-  // Pointer to pin array
-  /**
-     0 -> direction pin
-     1 -> speed pin
-   **/
-  uint8_t pins[NUM_MOTORS];
-  // speed of the joint, (-255,255)
-  int speed;
-} RescueJoint;
+  int pin_dir;// pin direzione
+  int pin_pwm;// pin pwm
 
-/** Initialize the joint given the pins **/
-void RescueJoint_init(uint8_t* pins);
+  int velocita;// velocita del motore
+  int direzione;// direzione del motore
+}RescueMotor;
 
-/** Sets the speed of a given joint **/
-void RescueJoint_setSpeed(int speed);
+/** 
+ * inizializza la struttura m impostando pin_dir, pin_pwm e azzerando
+ * velocita e direzione  
+ **/
+void RescueMotor_init(RescueMotor* m, int pin_dir, int pin_pwm);
+
+/**
+ * imposta la velocita di m in base v.
+ * v puo essere sia negativo che positivo mentre 
+ * m->velocita deve essere necessariamente positivo
+ * il segno di v determina m->direzione (0 se positivo, 1 se negativo
+ **/
+void RescueMotor_setVelocita(RescueMotor* m, int v);
+
+/**
+ * comunica al controllore i comandi per accendere il motore
+ **/
+void RescueMotor_handle(RescueMotor* m);
 

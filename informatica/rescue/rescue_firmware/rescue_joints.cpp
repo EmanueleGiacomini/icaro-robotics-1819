@@ -3,27 +3,38 @@
 **/
 #include "rescue_joints.h"
 
-/** Initialize the joint given the pins **/
-void RescueJoint_init(RescueJoint* joint, uint8_t* pins) { 
-  pinMode(joint->pins[0], INPUT);              
-  return;
+
+/** 
+ * inizializza la struttura m impostando pin_dir, pin_pwm e azzerando
+ * velocita e direzione  
+ **/
+void RescueMotor_init(RescueMotor* m, int pin_dir, int pin_pwm) {
+  m->pin_dir=pin_dir;
+  m->pin_pwm=pin_pwm;
+  m->velocita=0;
+  m->direzione=0;
 }
 
-/** Sets the speed of a given joint **/
-void RescueJoint_setSpeed(RescueJoint joint, int speed) {
-  int pwm = 0;     //lo so che mi hai insegnato come risparmiare memoria con uint8_t però non essere tirchio come sempre su...
-  int dir = 0;     //pure qui, viva lo spreco...
-  if(speed>= 0){
-    pwm = speed;
-    dir = 0; 
-  }                     
-  else {    
-    pwm = - speed;   
-    dir = 1;         
+/**
+ * imposta la velocita di m in base v.
+ * v puo essere sia negativo che positivo mentre 
+ * m->velocita deve essere necessariamente positivo
+ * il segno di v determina m->direzione (0 se positivo, 1 se negativo
+ **/
+void RescueMotor_setVelocita(RescueMotor* m, int v) {
+  if(v>0) {
+    m->velocita=v;
+    m->direzione=0;
+  } else {
+    m->velocita=-v;
+    m->direzione=1;
   }
-  if(pwm > 255){
-    pwm = 255;
-  }
-  return;
 }
 
+/**
+ * comunica al controllore i comandi per accendere il motore
+ **/
+void RescueMotor_handle(RescueMotor* m) {
+  digitalWrite(m->pin_dir, m->direzione);
+  analogWrite(m->pin_pwm, m->velocita);
+}

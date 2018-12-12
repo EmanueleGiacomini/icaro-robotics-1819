@@ -2,13 +2,33 @@
    rescue_bumper.h
 **/
 
+#include <Arduino.h>
+#include "rescue_globals.h"
+
 typedef struct {
-  uint8_t pin;
-  uint8_t state;
+  int pin;
+  int misura;
+  int stato;
 } RescueBumper;
 
-void RescueBumper_init(RescueBumper* bumper);
+/**
+ * inzializza la struttura bumper azzerando misura e stato
+ **/
+void RescueBumper_init(RescueBumper* b);
 
-int RescueBumper_getState(RescueBumper* bumper);
+/**
+ * esegue la lettura del pin assegnato a bumper e aggiorna misura
+ **/
+void RescueBumper_update(RescueBumper* b);
+
+/**
+ * calcola il nuovo stato a partire da misura
+ **/
+void RescueBumper_handle(RescueBumper* b);
+
+/**
+ * restituisce lo stato di uscita di bumper
+ **/
+int RescueBumper_getStato(RescueBumper* b);
 
 // TODO: Implementare soluzione con interrupt

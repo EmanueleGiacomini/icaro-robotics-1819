@@ -1,9 +1,9 @@
 /**
-   rescue_globals.h
-**/
+ * rescue_params.h
+ **/
+
 #pragma once
-#include <Arduino.h>
-#include <Pixy2.h>
+
 
 /** Uncomment to set debug mode on...
     this will print debug messages on the serial interface **/
@@ -13,6 +13,7 @@
 
 #define NUM_DETECTORS 3
 
-/** Pixy2 object **/
-extern Pixy2 pixy;
+#define NUM_BUMPERS 2
+
+#define NUM_COLOR_SENSORS 2
 

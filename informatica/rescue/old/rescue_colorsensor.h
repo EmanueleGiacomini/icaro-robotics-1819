@@ -4,6 +4,9 @@
 
 
 // from datasheet: output_freq_min = GREEN_MIN(8kHz) => 125uS => TIMEOUT_US = 150
+#pragma once
+#include <Arduino.h>
+
 #define TIMEOUT_US 150
 #define FREQ_SCALE_2 2
 #define FREQ_SCALE_20 1
@@ -20,7 +23,7 @@ typedef enum {
   Blue=2,
   White=3,
   Black=4,
-  NotClear=-1;
+  NotClear=-1
 }Color;
 
 typedef struct {
@@ -35,7 +38,7 @@ typedef struct {
   uint8_t s1;
   uint8_t s2;
   uint8_t s3;
-  uint8_t misura;
+  uint16_t misura;
   uint8_t r_chn;
   uint8_t g_chn;
   uint8_t b_chn;
@@ -48,10 +51,10 @@ void ColorSensor_init(ColorSensor* c);
 
 void ColorSensor_update(ColorSensor* c);
 
-void ColorSensor_startUp(ColorSensor* c);
+void ColorSensor_startUp(ColorSensor* c, uint8_t freq_scale);
 
 void ColorSensor_shutDown(ColorSensor* c);
 
-Colore ColorSensor_compute(ColorSensor* c);
+Color ColorSensor_compute(ColorSensor* c);
 
 

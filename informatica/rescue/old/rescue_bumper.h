@@ -2,8 +2,10 @@
    rescue_bumper.h
 **/
 
+#pragma once
+
 #include <Arduino.h>
-#include "rescue_globals.h"
+#include "rescue_params.h"
 
 typedef struct {
   int pin;

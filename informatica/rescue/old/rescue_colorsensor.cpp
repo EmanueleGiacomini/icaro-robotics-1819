@@ -57,7 +57,7 @@ void ColorSensor_shutDown(ColorSensor* c) {
   c->s1=1;
 }
 
-Colore ColorSensor_compute(ColorSensor* c) {
+Color ColorSensor_compute(ColorSensor* c) {
   uint16_t colore_misurato=0;
   // calcolo rosso
   c->s2=0;

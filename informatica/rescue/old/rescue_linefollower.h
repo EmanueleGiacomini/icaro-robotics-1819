@@ -4,7 +4,7 @@
 
 #pragma once
 #include <Arduino.h>
-#include "rescue_globals.h"
+#include "rescue_params.h"
 
 typedef struct {
   int pin;// pin analogico associato al sensore
@@ -62,6 +62,7 @@ int LineDetector_getStato(LineDetector* d);
 
 typedef struct {
   LineDetector* detectors;
+  // valore x ogni detector ( necessario per identificare la posizione del detector)
   int detector_valore[NUM_DETECTORS];
 
   int offset_linea;

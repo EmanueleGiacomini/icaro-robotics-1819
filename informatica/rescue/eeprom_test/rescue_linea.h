@@ -1,18 +1,41 @@
 /**
- * rescue_linea.cpp
+ * rescue_linea.h
  **/
 
-#include "rescue_linea.h"
+#pragma once
+#include <Arduino.h>
+#include "rescue_linea_internal.h"
 
+#define NUMERO_SENSORI_LINEA 3
+
+typedef struct {
+  // Output del modulo
+  int16_t output;
+  // flag di rilevazione linea ( si può aggiornare
+  // l'output)
+  uint8_t line_flag;
+  // flag di calibrazione, se impostata ad 1, attiva
+  // la calibrazione di tutti gli altri sensori
+  uint8_t calib_flag;
+  
+  // s_offset contiene l'offset di ogni sensore contenuto
+  // nell'array sensori. ES:
+  // #define NUMERO_SENSORI 3
+  // s_offset = {-2, 0, 2};
+  // se il primo e il secondo sensore vedono la linea
+  // output = (-2 + 0) / 2 = -1 (la linea si trova fra il sensore
+  // 0 e il sensore 1)
+  int8_t s_offset[NUMERO_SENSORI_LINEA];
+  // array di SensoreLinea, grande esattamente NUMERO_SENSORI
+  SensoreLinea* sensori;
+}RescueLinea;
 
 /**
  * inizializza l (RescueLinea) azzerando i valori
  * di output, line_flag e calib_flag. Poi imposta
  * l->sensori pari a s.
  **/
-void RescueLinea_init(RescueLinea* l, SensoreLinea* s) {
-  return;
-}
+void RescueLinea_init(RescueLinea* l, SensoreLinea* s);
 
 /**
  * Esegue la lettura di tuti i sensori e contemporaneamente,
@@ -37,53 +60,28 @@ void RescueLinea_init(RescueLinea* l, SensoreLinea* s) {
  * 4) Dopo aver controllato i sensori, se line_flag è maggiore
  *    di 0, allora l->output = line_offset/l->line_flag
  **/
-void RescueLinea_handle(RescueLinea* l) {
-  int16_t line_offset=0; // variabile temporanea
-  for(int i=0;i<NUMERO_SENSORI_LINEA;++i) {
-    SensoreLinea_handle(l->sensori[i]);
-  }
-  for(int i=0;i<NUMERO_SENSORI_LINEA;++i) {
-    uint16_t valore_sensore=SensoreLinea_getStato(l->sensori[i]);
-    if(valore_sensore) {
-      ...
-    }
-  }
-  // Da completare...
-  return;
-}
+void RescueLinea_handle(RescueLinea* l);
 
 /**
  * imposta l->calib_flag ad 1
  * e lancia la funzione SensoreLinea_startCalib
  * per ogni sensore in l->sensori
  **/
-void RescueLinea_startCalib(RescueLinea* l) {
-  // Da completare...
-  return;
-}
+void RescueLinea_startCalib(RescueLinea* l);
 
 /**
  * azzera l->calib_flag
  * e lancia la funzione SensoreLinea_stopCalib
  * per ogni sensore in l->sensori
  **/
-void RescueLinea_stopCalib(RescueLinea* l) {
-  // Da completare...
-  return;
-}
+void RescueLinea_stopCalib(RescueLinea* l);
 
 /**
  * restituisce il valore di l->line_flag
  **/
-uint8_t RescueLinea_rilevaLinea(RescueLinea* l) {
-  // Da completare...
-  return 0;
-}
+uint8_t RescueLinea_rilevaLinea(RescueLinea* l);
 
 /**
  * restituisce l->output
  **/
-int16_t RescueLinea_getStatus(RescueLinea* l) {
-  // Da completare...
-  return 0;
-}
+int16_t RescueLinea_getStatus(RescueLinea* l);
